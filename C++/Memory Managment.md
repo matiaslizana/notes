@@ -1,0 +1,4 @@
+* To prevent memory leaks, use objects that acquire resources in their constructors and release them in their destructors (shared_ptr or auto_ptr). shared_ptr is preferred as it has an intuitive copy operator, auto_ptr copy makes original pointer null.
+* It's recommended to use your own resource-managing classes using RAII principles (prohibit copying and reference-count resource)
+* If you use [] in a new operator, you should use [] on a delete operator (arrays)
+* Always store "new" objects before passing it into a function, as if it has more parameters and one of them calls a function that can create exceptions, new object will not be executed.
